@@ -21,7 +21,7 @@ function createCircle(className, onClick) {
     if (circleRect.left <= lineRect.right) {
       clearInterval(interval);
       container.removeChild(circle);
-      if (!circle.classList.contains('impostorCircle')) {
+      if (!circle.classList.contains('impostorCircle') && !circle.classList.contains('yellowImpostorCircle')) {
         health--;
         new Audio('miss.mp3').play();
         document.getElementById("health").textContent = health;
@@ -56,18 +56,22 @@ document.addEventListener('keydown', function(event) {
 });
 
 function VioletCirclePress() {
-  if (score >= 500) {
+  if (score >= 400) {
     spawnVioletCircle();
-    score -= 500;
+    score -= 400;
     document.getElementById("score").textContent = score;
+  } else {
+    new Audio('miss.mp3').play();
   }
 }
 
 function superLinePress() {
-  if (score >= 250) {
+  if (score >= 500) {
     spawnSuperLine();
-    score -= 250;
+    score -= 500;
     document.getElementById("score").textContent = score;
+  } else {
+    new Audio('miss.mp3').play();
   }
 }
 

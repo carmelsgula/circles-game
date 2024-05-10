@@ -4,7 +4,7 @@ function spawnRedCircle() {
       document.getElementById("score").textContent = score;
       new Audio('pop.mp3').play();
     });
-    if (level < 4) {
+    if (level < 5) {
       var redCircle = document.querySelector(".redCircle");
       if (redCircle) {
         container.removeChild(redCircle);

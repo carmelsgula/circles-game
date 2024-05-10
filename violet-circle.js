@@ -54,9 +54,26 @@ function spawnVioletCircle() {
             new Audio('impostor-pop.mp3').play();
           } else if (circle.classList.contains('pinkCircle')) {
             score += 2;
+            health += 2;
+            document.getElementById("score").textContent = score;
+            document.getElementById("health").textContent = health;
+            container.removeChild(circle);
+            new Audio('pink-pop.mp3').play();
+          } else if (circle.classList.contains('cyanCircle')) {
+            score += Math.floor(Math.random() * 16) + 1;
             document.getElementById("score").textContent = score;
             container.removeChild(circle);
             new Audio('pop.mp3').play();
+          } else if (circle.classList.contains('cyanCircle')) {
+            level++;
+            document.getElementById("level").textContent = level;
+            container.removeChild(circle);
+            new Audio('pink-pop.mp3').play();
+          } else if (circle.classList.contains('greenCircle')) {
+            score += 64;
+            document.getElementById("level").textContent = level;
+            container.removeChild(circle);
+            new Audio('green-pop.mp3').play();
           }
         }
       });

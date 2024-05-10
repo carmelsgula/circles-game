@@ -30,6 +30,17 @@
     cursor: pointer;
   }
 
+  .yellowImpostorCircle {
+    position: absolute;
+    width: 3.3%;
+    padding-top: 3.3%;
+    background-color: #ffd900;
+    border: 4px solid #d0b100;
+    border-radius: 50%;
+    animation: moveAndSwitchYellow 4s linear;
+    cursor: pointer;
+  }
+
   .purpleCircle {
     position: absolute;
     width: 3.3%;

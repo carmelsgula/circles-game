@@ -5,7 +5,7 @@ function spawnYellowImpostorCircle() {
       new Audio('impostor-pop.mp3').play();
     });
   
-    if (level < 14) {
+    if (level < 13) {
       var impostorCircle = document.querySelector(".yellowImpostorCircle");
       if (impostorCircle) {
         container.removeChild(impostorCircle);

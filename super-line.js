@@ -58,6 +58,11 @@ function spawnSuperLine() {
               document.getElementById("score").textContent = score;
               container.removeChild(circle);
               new Audio('pop.mp3').play();
+            } else if (circle.classList.contains('greenCircle')) {
+              score += 64;
+              document.getElementById("score").textContent = score;
+              container.removeChild(circle);
+              new Audio('green.mp3').play();
             }
           }
         });

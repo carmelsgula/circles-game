@@ -55,7 +55,7 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-function VioletCirclePress() {
+function violetCirclePress() {
   if (score >= 400) {
     spawnVioletCircle();
     score -= 400;
@@ -75,6 +75,23 @@ function superLinePress() {
   }
 }
 
+function pinkCirclePress() {
+  if (score >= 100) {
+    new Audio('pink-spawns.mp3').play();
+    createCircle("pinkCircle", function () {
+      score += 2;
+      health += 1;
+      document.getElementById("score").textContent = score;
+      document.getElementById("health").textContent = health;
+      new Audio('pink-pop.mp3').play();
+    });
+    score -= 100;
+    document.getElementById("score").textContent = score;
+  } else {
+    new Audio('miss.mp3').play();
+  }
+}
+
 function checkGameOver() {
   if (health <= 0) {
     window.location.href = 'gameover.html';
@@ -88,6 +105,7 @@ document.getElementById("startButton").addEventListener("click", function () {
   document.getElementById("level").style.display = "block";
   document.getElementById("violetButton").style.display = "block";
   document.getElementById("superLineButton").style.display = "block";
+  document.getElementById("pinkButton").style.display = "block";
 
   setInterval(checkGameOver, 10);
   spawnSapphireCircle();

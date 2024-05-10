@@ -5,7 +5,7 @@ function spawnGrayCircle(onClick) {
     grayCircle.style.left = "0%";
     container.appendChild(grayCircle);
   
-    if (level < 20) {
+    if (level !== 20) {
       var grayCircle = document.querySelector(".grayCircle");
       if (grayCircle) {
         container.removeChild(grayCircle);

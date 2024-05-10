@@ -1,12 +1,12 @@
 function spawnYellowImpostorCircle() {
-    createCircle("impostorCircle", function () {
+    createCircle("yellowImpostorCircle", function () {
       health -= 2;
       document.getElementById("health").textContent = health;
       new Audio('impostor-pop.mp3').play();
     });
   
     if (level < 14) {
-      var impostorCircle = document.querySelector(".impostorCircle");
+      var impostorCircle = document.querySelector(".yellowImpostorCircle");
       if (impostorCircle) {
         container.removeChild(impostorCircle);
       }

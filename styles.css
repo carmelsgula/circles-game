@@ -28,9 +28,45 @@ body {
 
   #health,
   #score,
-  #level {
+  #level,
+  #violetButton,
+  #superLineButton {
     display: none;
     font-family: 'circles';
+  }
+
+  #superLineButton {
+    font-family: 'circles';
+    color: white;
+    position: absolute;
+    width: 5.8%;
+    right: 6.5%;
+    top: 0;
+    padding-top: 2%;
+    background-color: #949494;
+    border: 4px solid #6c6c6c;
+    font-size: 350%;
+    text-align: center;
+    padding: 7px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  #violetButton {
+    font-family: 'circles';
+    color: white;
+    position: absolute;
+    width: 5.8%;
+    right: 0;
+    padding-top: 2%;
+    top: 0;
+    background-color: #949494;
+    border: 4px solid #6c6c6c;
+    font-size: 350%;
+    text-align: center;
+    padding: 7px 10px;
+    border-radius: 10px;
+    cursor: pointer;
   }
 
   #health {

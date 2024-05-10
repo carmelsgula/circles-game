@@ -55,6 +55,22 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
+function VioletCirclePress() {
+  if (score >= 500) {
+    spawnVioletCircle();
+    score -= 500;
+    document.getElementById("score").textContent = score;
+  }
+}
+
+function superLinePress() {
+  if (score >= 250) {
+    spawnSuperLine();
+    score -= 250;
+    document.getElementById("score").textContent = score;
+  }
+}
+
 function checkGameOver() {
   if (health <= 0) {
     window.location.href = 'gameover.html';
@@ -66,6 +82,8 @@ document.getElementById("startButton").addEventListener("click", function () {
   document.getElementById("health").style.display = "block";
   document.getElementById("score").style.display = "block";
   document.getElementById("level").style.display = "block";
+  document.getElementById("violetButton").style.display = "block";
+  document.getElementById("superLineButton").style.display = "block";
 
   setInterval(checkGameOver, 10);
   spawnSapphireCircle();
@@ -77,6 +95,7 @@ document.getElementById("startButton").addEventListener("click", function () {
   spawnImpostorCircle();
   spawnYellowImpostorCircle();
   spawnPinkCircle();
+  spawnCyanCircle();
   setTimeout(function() {
   spawnGreenCircle();
   }, Math.random() * 400000);

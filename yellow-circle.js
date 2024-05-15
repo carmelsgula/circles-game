@@ -1,6 +1,7 @@
 function spawnYellowCircle() {
     createCircle("yellowCircle", function () {
       score += 4;
+      increaseCirclesHit();
       document.getElementById("score").textContent = score;
       new Audio('pop.mp3').play();
     });

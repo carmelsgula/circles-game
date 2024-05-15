@@ -10,6 +10,7 @@ function spawnBlueCircle() {
         blueCircleAmount++;
         createCircle("blueCircle", function () {
             score += 1;
+            increaseCirclesMissed();
             document.getElementById("score").textContent = score;
             new Audio('pop.mp3').play();
         });

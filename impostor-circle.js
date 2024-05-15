@@ -1,11 +1,18 @@
 function spawnImpostorCircle() {
     createCircle("impostorCircle", function () {
-      health -= 1;
-      document.getElementById("health").textContent = health;
-      new Audio('impostor-pop.mp3').play();
+        if (!circleRessistance) {
+            health -= 1;
+            score -= 2;
+            increaseCirclesMissed();
+            document.getElementById("score").textContent = score;
+            document.getElementById("health").textContent = health;
+            new Audio('impostor-pop.mp3').play();
+        } else {
+            new Audio('impostor-pop.mp3').play();
+        }
     });
   
-    if (level < 8) {
+    if (level < 7 || disableImpostors) {
       var impostorCircle = document.querySelector(".impostorCircle");
       if (impostorCircle) {
         container.removeChild(impostorCircle);

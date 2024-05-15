@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Circles Game</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="circles.css">
-  <style>
-    @font-face {
-      font-family: 'circles';
-      src: url('./circles.ttf') format('truetype');
-    }
-  </style>
-</head>
-<body>
-  <p id="health">10</p>
-  <p id="score">0</p>
-  <p id="level">1</p>
-  <button id="violetButton" onclick="violetCirclePress()">V</button>
-  <button id="superLineButton" onclick="superLinePress()">S</button>
-  <button id="pinkButton" onclick="pinkCirclePress()">P</button>
-  <h1 id="bossHealth">10</h1>
-  <div class="redLine"></div>
-
-  <button id="startButton">Start</button>
-
-  <script src="script.js"></script>
-  <script src="sapphire-circle.js"></script>
-  <script src="green-circle.js"></script>
-  <script src="purple-circle.js"></script>
-  <script src="impostor-circle.js"></script>
-  <script src="blue-circle.js"></script>
-  <script src="orange-circle.js"></script>
-  <script src="pink-circle.js"></script>
-  <script src="gray-circle.js"></script>
-  <script src="cyan-circle.js"></script>
-  <script src="yellow-circle.js"></script>
-  <script src="yellow-impostor-circle.js"></script>
-  <script src="red-circle.js"></script>
-  <script src="violet-circle.js"></script>
-  <script src="summon-boss.js"></script>
-  <script src="super-line.js"></script>
-  <script src="summon-final-boss.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Circles Game</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="circles.css">
+        <style>
+            @font-face {
+                font-family: 'circles';
+                src: url('./circles.ttf') format('truetype');
+            }
+        </style>
+    </head>
+    <body>
+        <p id="health">10</p>
+        <p id="score">0</p>
+        <p id="level">1</p>
+        <button id="violetButton" onclick="violetCirclePress()">V</button>
+        <button id="superLineButton" onclick="superLinePress()">S</button>
+        <button id="pinkButton" onclick="pinkCirclePress()">P</button>
+        <button id="ressistanceButton" onclick="ressistancePress()">R</button>
+        <h1 id="bossHealth">10</h1>
+        <div class="redLine"></div>
+        <div id="layout">
+            <div id="stats">
+                <p>Circles hit and missed from last game:</p>
+                <p id="displayCirclesHit"></p>
+                <p id="displayCirclesMissed"></p>
+                <p id="displayAccuracy"></p>
+            </div>
+            <div id="options">
+                <p id="disableImpostors">Disable Impostor Circles</p>
+                <input type="checkbox" id="disableImpostorsCheck" name="myCheckbox">
+                <p>Shorter Levels</p>
+                <input type="checkbox" id="shortLevels" name="myCheckbox">
+            </div>
+            <button id="resetStats" onclick="resetStats()">Reset all</button>
+            <button id="startButton" onclick="resetStats()">Start</button>
+            <button id="statsButton">Statistics</button>
+            <button id="optionsButton">Options</button>
+            <button id="backButton">Go Back</button>
+        </div>
+        <script src="script.js"></script>
+        <script src="sapphire-circle.js"></script>
+        <script src="green-circle.js"></script>
+        <script src="purple-circle.js"></script>
+        <script src="impostor-circle.js"></script>
+        <script src="blue-circle.js"></script>
+        <script src="orange-circle.js"></script>
+        <script src="pink-circle.js"></script>
+        <script src="gray-circle.js"></script>
+        <script src="cyan-circle.js"></script>
+        <script src="yellow-circle.js"></script>
+        <script src="yellow-impostor-circle.js"></script>
+        <script src="red-circle.js"></script>
+        <script src="violet-circle.js"></script>
+        <script src="summon-boss.js"></script>
+        <script src="super-line.js"></script>
+        <script src="summon-final-boss.js"></script>
+        <script src="stats.js"></script>
+        <script src="options.js"></script>
+    </body>
 </html>

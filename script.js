@@ -7,6 +7,9 @@ var level = 1;
 var bossHealth = 10;
 var canSpawn = 0;
 var ressistance = false;
+var circleRessistance = false;
+var disableImpostors = false;
+var shorterLevels = false;
 function createCircle(className, onClick) {
   var circle = document.createElement("div");
   circle.className = className;
@@ -21,10 +24,14 @@ function createCircle(className, onClick) {
     if (circleRect.left <= lineRect.right) {
       clearInterval(interval);
       container.removeChild(circle);
-      if (!circle.classList.contains('impostorCircle') && !circle.classList.contains('yellowImpostorCircle')) {
+      if (!circle.classList.contains('impostorCircle') && !circle.classList.contains('yellowImpostorCircle') && !circle.classList.contains('pinkCircle')) {
         health--;
+        increaseCirclesMissed();
         new Audio('miss.mp3').play();
         document.getElementById("health").textContent = health;
+      } else if (circle.classList.contains('purpleCircle')) {
+        level = 0;
+        document.getElementById("level").textContent = level;
       }
     }
   }, 5);
@@ -44,14 +51,14 @@ function getRandomPosition() {
 }
 
 document.addEventListener('keydown', function(event) {
-  if (event.key === 'v' && score >= 500) {
-    spawnVioletCircle();
-    score -= 500;
-    document.getElementById("score").textContent = score;
-  } else if (event.key === 's' && score >= 250) {
-      spawnSuperLine();
-      score -= 250;
-      document.getElementById("score").textContent = score;
+  if (event.key === 'v') {
+      violetCirclePress();
+  } else if (event.key === 's') {
+      superLinePress();
+  } else if (event.key === 'p') {
+      pinkCirclePress();
+  } else if (event.key === 'r') {
+      ressistancePress();
   }
 });
 
@@ -92,30 +99,55 @@ function pinkCirclePress() {
   }
 }
 
+function ressistancePress() {
+  if (score >= 250 && !circleRessistance && !disableImpostors) {
+    new Audio('pink-spawns.mp3').play();
+    circleRessistance = true;
+    score -= 250;
+    setTimeout(() => {
+      circleRessistance = false;
+    }, 15000);
+  } else {
+    new Audio('miss.mp3').play();
+  }
+}
+
 function checkGameOver() {
   if (health <= 0) {
-    window.location.href = 'gameover.html';
+    window.location.href = 'game-over.html';
+  }
+}
+
+function checkGameWon() {
+  if (bossHealth <= 0 && level === 20) {
+    window.location.href = 'you-won.html';
   }
 }
 
 document.getElementById("startButton").addEventListener("click", function () {
   this.style.display = "none";
+  document.getElementById("statsButton").style.display = "none";
   document.getElementById("health").style.display = "block";
   document.getElementById("score").style.display = "block";
   document.getElementById("level").style.display = "block";
   document.getElementById("violetButton").style.display = "block";
   document.getElementById("superLineButton").style.display = "block";
   document.getElementById("pinkButton").style.display = "block";
+  document.getElementById("ressistanceButton").style.display = "block";
+  document.getElementById("disableImpostors").style.display = "none";
+  document.getElementById("disableImpostorsCheck").style.display = "none";
+  document.getElementById("optionsButton").style.display = "none";
 
   setInterval(checkGameOver, 10);
+  setInterval(checkGameWon, 10);
   spawnSapphireCircle();
   spawnYellowCircle();
   spawnBlueCircle();
   spawnGrayCircle();
   spawnOrangeCircle();
   spawnRedCircle();
+  spawnYellowImpostorCircle(); 
   spawnImpostorCircle();
-  spawnYellowImpostorCircle();
   spawnPinkCircle();
   spawnCyanCircle();
   setTimeout(function() {
@@ -132,7 +164,7 @@ document.getElementById("startButton").addEventListener("click", function () {
       canSpawn = 1;
       document.getElementById("canSpawn").textContent = canSpawn;
     }
-    if (canSpawn === 1) {
+    if (canSpawn === 1 && level === 10) {
       summonBoss();
       canSpawn = 2;
     }
@@ -142,7 +174,7 @@ document.getElementById("startButton").addEventListener("click", function () {
       document.getElementById("canSpawn").textContent = canSpawn;
     }
     if (canSpawn === 1) {
-      summonFinalBoss()
+      summonFinalBoss();
       canSpawn = 2;
     }
   }, 10)

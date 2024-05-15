@@ -67,6 +67,7 @@ function summonBoss(onClick) {
                             document.getElementById("health").textContent = health;
                             new Audio('pink-pop.mp3').play();
                         });
+                        spawnPurpleCircleSecond();
                     }, 2000);
                 }
             };

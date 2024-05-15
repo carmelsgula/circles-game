@@ -49,7 +49,7 @@ function spawnSuperLine() {
               container.removeChild(circle);
               new Audio('impostor-pop.mp3').play();
             } else if (circle.classList.contains('yellowImpostorCircle')) {
-              health -= 2;
+              health--;
               document.getElementById("health").textContent = health;
               container.removeChild(circle);
               new Audio('impostor-pop.mp3').play();

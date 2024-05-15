@@ -1,6 +1,7 @@
 function spawnSapphireCircle() {
     createCircle("sapphireCircle", function () {
       score += 2;
+      increaseCirclesHit();
       document.getElementById("score").textContent = score;
       new Audio('pop.mp3').play();
     });

@@ -1,6 +1,7 @@
 function spawnOrangeCircle() {
     createCircle("orangeCircle", function () {
       score += 8;
+      increaseCirclesHit();
       document.getElementById("score").textContent = score;
       new Audio('pop.mp3').play();
     });

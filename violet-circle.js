@@ -48,7 +48,7 @@ function spawnVioletCircle() {
             container.removeChild(circle);
             new Audio('impostor-pop.mp3').play();
           } else if (circle.classList.contains('yellowImpostorCircle')) {
-            health -= 2;
+            health--;
             document.getElementById("health").textContent = health;
             container.removeChild(circle);
             new Audio('impostor-pop.mp3').play();
@@ -69,11 +69,11 @@ function spawnVioletCircle() {
             document.getElementById("level").textContent = level;
             container.removeChild(circle);
             new Audio('pink-pop.mp3').play();
-          } else if (circle.classList.contains('greenCircle')) {
-            score += 64;
-            document.getElementById("level").textContent = level;
+          } else if (circle.classList.contains('cyanCircle')) {
+            score += Math.floor(Math.random() * 16) + 1;
+            document.getElementById("score").textContent = score;
             container.removeChild(circle);
-            new Audio('green-pop.mp3').play();
+            new Audio('pop.mp3').play();
           }
         }
       });

@@ -10,7 +10,7 @@ function spawnPurpleCircle() {
         new Audio('pink-pop.mp3').play();
     });
     if (level > 10) {
-        var purpleCircle = document.querySelector(".purpleCircle");
+        var purpleCircle = document.querySelector(".purpleCircle1");
         if (purpleCircle) {
             container.removeChild(purpleCircle);
         }
@@ -20,13 +20,13 @@ function spawnPurpleCircle() {
     } else {
         var timeDelay = 20000 + (level * 2000);
     }
-    if (level > 10) {
+    if (level < 10) {
         setTimeout(spawnPurpleCircle, timeDelay);
     }
 }
 
 function spawnPurpleCircleSecond() {
-    createCircle("purpleCircle", function () {
+    createCircle("purpleCircle1", function () {
         score += 2;
         increaseCirclesHit();
         document.getElementById("score").textContent = score;
@@ -36,7 +36,7 @@ function spawnPurpleCircleSecond() {
         document.getElementById("health").textContent = health;
         new Audio('pink-pop.mp3').play();
         if (level < 11) {
-            var purpleCircle = document.querySelector(".purpleCircle");
+            var purpleCircle = document.querySelector(".purpleCircle1");
             if (purpleCircle) {
                 container.removeChild(purpleCircle);
             }
